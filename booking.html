@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Slot | Turf</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/booking.css" />
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark py-3">
+    <div class="container-fluid bg-white px-5 py-3 rounded-bottom rounded-top" style="max-width: 1400px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+      <a class="navbar-brand fw-bold text-dark" href="index.html">🏏 Turf Booking</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-dark" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active text-white bg-primary px-3 rounded-3" href="booking.html">Book Slot</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="about.html ">About Us</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <h2>Select Date</h2>
+    <div class="date-scroll" id="date-scroll">
+      <!-- Dates will be loaded via JS -->
+    </div>
+
+    <div class="slot-container" id="slot-container">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Select Time Slot</h2>
+        <button id="clear-slots-btn" class="btn btn-outline-danger btn-sm">
+          <i class="bi bi-x-circle"></i> Clear Selection
+        </button>
+      </div>
+      <div class="slots" id="slots">
+        <!-- Slots will be loaded via JS after selecting a date -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+ 
+  <footer class="footer bg-dark text-white text-center py-4">
+    <p class="mb-0">&copy; 2025 Cricket Turf Booking. All rights reserved.</p>
+</footer>
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    // Initialize EmailJS with your public key
+    (function() {
+      emailjs.init("7_QLk2-_vYWao_PC-"); // Replace with your EmailJS public key
+    })();
+  </script>
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize particles.js with error handling
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hide the particles container by default
+      const particlesContainer = document.getElementById('particles-js');
+      if (particlesContainer) {
+        particlesContainer.style.display = 'none';
+      }
+      
+      // Only try to load particles if the library is available
+      if (window.particlesJS) {
+        try {
+          const particles = window.particlesJS('particles-js', {
+            // Default config if particles.json fails to load
+            particles: {
+              number: { value: 80 },
+              color: { value: '#ffffff' },
+              shape: { type: 'circle' },
+              opacity: { value: 0.5, random: true },
+              size: { value: 3, random: true },
+              line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+              },
+              move: {
+                enable: true,
+                speed: 2,
+                direction: 'none',
+                random: true,
+                straight: false,
+                out_mode: 'out',
+                bounce: false
+              }
+            },
+            interactivity: {
+              detect_on: 'canvas',
+              events: {
+                onhover: { enable: true, mode: 'grab' },
+                onclick: { enable: true, mode: 'push' },
+                resize: true
+              }
+            },
+            retina_detect: true
+          });
+          
+          // Show the container
+          if (particlesContainer) {
+            particlesContainer.style.display = 'block';
+          }
+        } catch (error) {
+          console.error('Error initializing particles:', error);
+        }
+      } else {
+        console.warn('particles.js not loaded - background effect disabled');
+      }
+    });
+  </script>
+  <script src="js/booking.js"></script>
+</body>
+
+</html>
